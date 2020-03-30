@@ -1,0 +1,16 @@
+Steps to run cloud custodian policy
+Step 1: Create a vm and install cloud custodian on it:
+1.	Login to the VM
+2.	Install custodian using the following command:
+    $ virtualenv --python=python2 custodian
+    $ source custodian/bin/activate
+    (custodian) $ pip install c7n
+3.	Create a policy and place it on the VM
+4.	Login to the aws cli
+5.	Validate and run the policy using below commands:
+  Validate:
+      $ custodian validate /path/to/policy.yml
+  Dry run command:
+      $ custodian run --dryrun -s out /path/to/policy.yml 
+  Run the policy:
+      $ custodian run -s out /path/to/policy.yml
